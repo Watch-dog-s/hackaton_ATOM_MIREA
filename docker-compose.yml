@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./formula_project:/app  # Монтируем локальную папку с проектом
+    environment:
+      - PYTHONUNBUFFERED=1  # Нет буферизации вывода, удобнее для разработки
