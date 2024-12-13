@@ -1,2 +1,5 @@
 .idea
-dgvenv/
+.djvenv/
+formula_project/db.sqlite3
+formula_project/formula_project/__pycache__/
+.gitattributes/
