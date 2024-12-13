@@ -2,10 +2,14 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
+      dockerfile: Dockerfile  # Указываем файл Dockerfile для сборки образа
     volumes:
-      - ./formula_project:/app  # Монтируем локальную папку с проектом
+      - ./formula_project:/app/formula_project  # Монтируем папку с проектом
+      - ./formula_project/Mainapp:/app/Mainapp  # Измените на корректный путь при необходимости
+      - ./formula_project/template:/app/template  # Монтируем шаблоны, если необходимо
+      - ./formula_project/db.sqlite3:/app/db.sqlite3  # Монтируем базу данных
+      - ./formula_project/manage.py:/app/manage.py
+    ports:
+      - "8000:8000"  # Пробрасываем порт для доступа
     environment:
-      - PYTHONUNBUFFERED=1  # Нет буферизации вывода, удобнее для разработки
+      - PYTHONUNBUFFERED=1  # Установка переменной окружения для вывода
