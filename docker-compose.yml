@@ -1,4 +1,17 @@
+
 services:
+  db:
+    image: postgres:14  # Используем официальный образ PostgreSQL
+    container_name: postgres_db  # Имя контейнера базы данных
+    environment:
+      POSTGRES_DB: Hackaton_DB     # Имя базы данных
+      POSTGRES_USER: test_user     # Имя пользователя
+      POSTGRES_PASSWORD: 12345     # Пароль
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Для хранения данных
+    ports:
+      - "5432:5432"  # Проброс порта для доступа извне
+
   web:
     build:
       context: .
@@ -13,3 +26,8 @@ services:
       - "8000:8000"  # Пробрасываем порт для доступа
     environment:
       - PYTHONUNBUFFERED=1  # Установка переменной окружения для вывода
+    depends_on:
+      - db  # Указываем, что сервис зависит от базы данных
+
+volumes:
+  postgres_data:  # Том для хранения данных PostgreSQL
