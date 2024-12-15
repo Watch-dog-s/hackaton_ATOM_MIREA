@@ -1,40 +1,48 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сравнение формул</title>
 </head>
 <body>
-    <h1>Ввод формулы</h1>
+    <h1>Сравнение формул</h1>
 
-    <!-- Форма для ввода новой формулы -->
-    <form method="POST" action="{% url 'add_formula' %}">
+    <!-- Блок для вывода сообщений об ошибке -->
+    {% if error %}
+        <div style="color: red; font-weight: bold;">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <!-- Блок для добавления новой формулы -->
+    <h2>Добавить новую формулу</h2>
+    <form method="POST">
         {% csrf_token %}
-        <label for="formula">Формула:</label>
-        <textarea name="formula" id="formula" rows="4" cols="50" required></textarea><br><br>
+        <label for="formula">Введите формулу:</label><br>
+        <input type="text" id="formula" name="formula" placeholder="Введите формулу" required>
         <button type="submit">Добавить</button>
     </form>
 
-    <!-- Форма для сравнения формул -->
-    <h2>Сравнение с другими формулами</h2>
-    <form method="POST" action="{% url 'compare_formula' %}">
+    <hr>
+
+    <!-- Блок для сравнения формул -->
+    <h2>Сравнить формулу</h2>
+    <form method="POST">
         {% csrf_token %}
-        <label for="compare_formula">Сравниваемая формула:</label>
-        <textarea name="compare_formula" id="compare_formula" rows="4" cols="50" required></textarea><br><br>
+        <label for="compare_formula">Введите формулу для сравнения:</label><br>
+        <input type="text" id="compare_formula" name="compare_formula" placeholder="Введите формулу" required>
         <button type="submit">Сравнить</button>
     </form>
 
-    <!-- Вывод ошибки, если формула не была введена -->
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+    <hr>
 
-    <!-- Вывод результата сравнения -->
+    <!-- Блок для отображения результатов сравнения -->
     {% if comparison_result %}
-        <h3>Результат сравнения:</h3>
-        <p>{{ comparison_result }}</p>
+        <h2>Результаты сравнения</h2>
+        <div style="margin-top: 10px; font-family: monospace; white-space: pre-wrap;">
+            {{ comparison_result|safe }}
+        </div>
     {% endif %}
 </body>
 </html>
