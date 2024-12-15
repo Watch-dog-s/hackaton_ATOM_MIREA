@@ -34,7 +34,7 @@ def home(request):
                     result = compare_formulas(compare_formula, formula.clean_formula)
                     results.append(f'Сравнение с формулой ID {formula.id}: {result * 100}% схожести')
 
-                # Вывод результатов
+
                 comparison_result = '<br>'.join(results)
                 return render(request, 'home.html', {'comparison_result': comparison_result})
 
@@ -46,8 +46,8 @@ def home(request):
 
 # Функция для сравнения двух формул
 def compare_formulas(formula1, formula2):
-    sr = sravnitel()  # Создаём экземпляр класса sravnitel
-    return sr.findCopy(formula1, formula2)  # Используем метод для расчёта процента сходства
+    sr = sravnitel()
+    return sr.findCopy(formula1, formula2)
 
 
 # Класс для обработки и сравнения формул
