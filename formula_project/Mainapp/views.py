@@ -23,3 +23,6 @@ def home(request):
             return render(request, 'home.html', {'error': 'Формула не может быть пустой.'})
 
     return render(request, 'home.html')
+
+def compare_formulas(formula1, formula2):
+    pass

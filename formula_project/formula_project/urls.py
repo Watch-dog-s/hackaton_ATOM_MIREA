@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),  # Добавляем имя 'home' для главной страницы
     path('add/', views.home, name='add_formula'),
+    path('compare/', views.compare_formulas, name='compare_formula'),
 
 ]
 
