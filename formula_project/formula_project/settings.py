@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Mainapp.apps.MainappConfig'
+    'formula_project.Mainapp.models.formula',   #вот тут трабл
+
+
 ]
 
 MIDDLEWARE = [

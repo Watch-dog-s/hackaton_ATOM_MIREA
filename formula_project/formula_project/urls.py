@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Mainapp.views import home
+
+from formula_project.Mainapp import views
+from formula_project.Mainapp.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
+    path('add/', views.home, name='add_formula'),
+
 
 
 ]

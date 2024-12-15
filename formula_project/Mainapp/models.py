@@ -10,5 +10,5 @@ class formula(models.Model):
     meta_inf=models.TextField(max_length=200,blank=True)
 
     class Meta:
-        db_table = 'formula' #
-        managed = False  # Django не будет управлять этой таблицей (например, создавать или удалять её)
+        db_table = 'formula'
+        managed = False
