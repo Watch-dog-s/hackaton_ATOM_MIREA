@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'formula_project.Mainapp.models.formula',   #вот тут трабл
-
+    # 'formula_project.Mainapp.models',   #вот тут трабл
+    # 'formula_project.Mainapp.models.Formula',
+    'formula_project.Mainapp',
 
 ]
 
@@ -96,7 +97,7 @@ DATABASES = {
         'NAME': 'Hackaton_DB',  # Имя базы данных
         'USER': 'test_user',  # Имя пользователя
         'PASSWORD': '12345',  # Пароль
-        'HOST': 'db',  # Хост базы данных
+        'HOST': 'postgres_db',  # Хост базы данных
         'PORT': '5432',  # Порт базы данных
     }
 }
