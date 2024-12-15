@@ -22,10 +22,8 @@ from formula_project.Mainapp.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home, name='home'),  # Добавляем имя 'home' для главной страницы
     path('add/', views.home, name='add_formula'),
-
-
 
 ]
 
